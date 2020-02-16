@@ -1,0 +1,2 @@
+FUNCTION-POOL Z6XX_AMT_WORDS.               "MESSAGE-ID ..
+

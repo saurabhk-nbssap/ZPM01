@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>Function Group - Cross Application Objec</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZ6XX_AMT_WORDSTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZ6XX_AMT_WORDS</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>Z6XX_AMOUNT_IN_WORDS_INR</FUNCNAME>
+     <SHORT_TEXT>Amount in Words Conversion For Currency  INR</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>I_AMOUNT</PARAMETER>
+       <DEFAULT>0</DEFAULT>
+       <REFERENCE>X</REFERENCE>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>I_CURRENCY</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>WAERS</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>I_FILLER</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>I_LANGUAGE</PARAMETER>
+       <OPTIONAL>X</OPTIONAL>
+       <REFERENCE>X</REFERENCE>
+       <TYP>SY-LANGU</TYP>
+      </RSIMP>
+     </IMPORT>
+     <EXPORT>
+      <RSEXP>
+       <PARAMETER>E_IN_WORDS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>SPELL</TYP>
+      </RSEXP>
+     </EXPORT>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>I_AMOUNT</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>I_CURRENCY</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Obsolete ABAP System Field</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>I_FILLER</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>I_LANGUAGE</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Language Key of Current Text Environment</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>E_IN_WORDS</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Transfer structure for amounts rendered in words</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

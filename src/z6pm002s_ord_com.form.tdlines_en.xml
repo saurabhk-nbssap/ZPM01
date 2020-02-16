@@ -1,0 +1,3028 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<abapGit version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <TDLINES>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>HEADER</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>TITLE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>HE</TDFORMAT>
+     <TDLINE>         ,,&amp;T001-BUTXT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;CAUFVD-AUFNR&amp; &lt;&gt; &apos;&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>A1</TDFORMAT>
+     <TDLINE>             Maintenance Order</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>elseif</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>LOGO</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>LOGO</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>BITMAP &apos;INDOFILL_LOGO&apos; OBJECT GRAPHICS ID BMAP TYPE BCOL</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/W</TDFORMAT>
+     <TDLINE>MAIN</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>PM_COMMON: Common form for all PM/SM workpapers (Please do not change!)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>------------------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>========================================================================</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>ORDER AND NOTIFICATION (following Textelements are used in both objects)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>========================================================================</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; GLOBAL SETTINGS -----------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>date format and decimal notation as defined in table T005X</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>SET COUNTRY &apos;???&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>! change /* in /: to activate statement</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>! change &apos;???&apos; in destination county code (please refer table T005X)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; WORKPAPER TITLE PAGE ------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>new title for every new page; counts pages</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>TITLE_PAGE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>TOP</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;B2&gt;&amp;DATE&amp; &amp;WIPRT-TITLE&amp; &amp;SYST-UNAME&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;PMPL-COPY_NR&amp; = &apos;  1&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;WWORKPAPER-PM_DELTA_P&amp; = &apos;X&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;B2&gt;  Original/Delta&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;B2&gt;  Original&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;WWORKPAPER-PM_DELTA_P&amp; = &apos;X&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;B2&gt; Delta&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;B2&gt;  Copy&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;B2&gt;  &amp;PMPL-COPY_NR(C)&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>,,,,,,,,&lt;B2&gt;  Page &amp;PAGE&amp;&lt;/&gt; &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDTOP</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; WORKPAPER TITLE BLOCK -----------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>new title for every new block; counts blocks</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>TITLE_BLOCK</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;B2&gt;&amp;DATE&amp; &amp;WIPRT-TITLE&amp; &amp;SYST-UNAME&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;PMPL-COPY_NR&amp; = &apos;  1&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;WWORKPAPER-PM_DELTA_P&amp; = &apos;X&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;B2&gt;  Original/Delta&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;B2&gt;  Original&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;WWORKPAPER-PM_DELTA_P&amp; = &apos;X&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;B2&gt;  Delta&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;B2&gt;  Copy&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;B2&gt;  &amp;PMPL-COPY_NR(C)&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; PARTNER INFO --------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>PARTNER_INFO</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>PROTECT</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>CE</TDFORMAT>
+     <TDLINE>&amp;uline(75)&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;B2&gt;&amp;IHPAD-VTEXT&amp;&lt;/&gt;&lt;/&gt; ,,  &lt;H0&gt;&amp;IHPAD-PARNR&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>,,&lt;I0&gt;Phone  &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;H0&gt;&amp;&apos;Phone:&apos;IHPAD-TEL_NUMBER&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Address&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ADDRESS PARAGRAPH AS</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>  TITLE   &amp;IHPAD-&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>  NAME     &amp;IHPAD-NAME1&amp;, &amp;IHPAD-NAME2&amp;, &amp;IHPAD-NAME3&amp;, &amp;IHPAD-NAME4&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>  STREET   &amp;IHPAD-STREET&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>  POBOX    &amp;IHPAD-PO_BOX&amp;  CODE &amp;IHPAD-POST_CODE2&amp; CITY &amp;IHPAD-CITY1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>  CITY     &amp;IHPAD-CITY1&amp;, &amp;IHPAD-CITY2&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>  POSTCODE &amp;IHPAD-POST_CODE2&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>  COUNTRY  &amp;IHPAD-COUNTRY&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>  REGION   &amp;IHPAD-REGION&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>  FROMCOUNTRY &amp;IHPAD-&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDADDRESS</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDPROTECT</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; OTHERS --------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>END_OF_REPORT</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;CAUFVD-AUFNR&amp; &lt;&gt; &apos;&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>CE</TDFORMAT>
+     <TDLINE>&amp;uline(75)&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>Work Done By</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>Checked By</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T1</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>CE</TDFORMAT>
+     <TDLINE>&lt;IB&gt;End of report&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>UNDERLINE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T4</TDFORMAT>
+     <TDLINE>&lt;B2&gt;&amp;WIPRT-COLHD&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>H_LINE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>CE</TDFORMAT>
+     <TDLINE>&amp;ULINE(75)&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>SPACE_LINE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>========================================================================</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>ORDER (following text elements are for order printing)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>========================================================================</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>OPERATION_HEAD</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>CE</TDFORMAT>
+     <TDLINE>&amp;uline(75)&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;B2&gt;Op.No    Description,,,,,,    OK/Not OK   Remarks&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>,,Duration,, Status</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>CE</TDFORMAT>
+     <TDLINE>&amp;uline(75)&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; ORDER HEADER DETAIL -------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>ORDER_HEADER_DETAIL</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>CE</TDFORMAT>
+     <TDLINE>&amp;uline(75)&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;B2&gt;Order         ,,&amp;CAUFVD-AUFNR&amp;,,&lt;/&gt;         &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Order type &lt;/&gt; &lt;/&gt;        &lt;H0&gt;&amp;CAUFVD-AUART&amp;&lt;/&gt;&lt;/&gt;  &lt;H0&gt;&amp;T003P-TXT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>&lt;/&gt; &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>H0</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Reported By&lt;/&gt;&lt;/&gt;              &lt;H0&gt;&amp;USERNAME&amp;&lt;/&gt;&lt;I0&gt;,,&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;I0&gt;To&lt;/&gt;&lt;/&gt;            &lt;I0&gt;&amp;USERRESP&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;CAUFVD-QMNUM&amp; &lt;&gt; &apos;&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>H0</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Notification No,,     &lt;/&gt;&lt;B2&gt;&amp;CAUFVD-QMNUM&amp;,,&lt;/&gt;     &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>CE</TDFORMAT>
+     <TDLINE>&amp;uline(75)&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Description   ,,&lt;/&gt;&lt;H2&gt;&amp;CAUFVD-KTEXT&amp;&lt;/&gt;   &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Start date    ,,&lt;/&gt;&lt;H2&gt;&amp;CAUFVD-GSTRS&amp;&lt;/&gt; ,,,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;End date  &lt;/&gt; ,,&lt;H2&gt;&amp;CAUFVD-GLTRS&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Priority      &lt;/&gt; ,,&lt;H2&gt;&amp;CAUFVD-PRIOK&amp;&lt;/&gt;  ,,&lt;H0&gt; &amp;T356_T-PRIOKX&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Status         ,,&lt;/&gt;&lt;H2&gt;&amp;CAUFVD-STTXT&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;CAUFVD-SCREENTY&amp; = &apos;O110&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Equipment      ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-EQUNR(Z)&amp;&lt;/&gt;      &lt;/&gt;       ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>       &lt;H0&gt;&amp;RIWO1-EQTXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Assembly      &lt;/&gt; ,,&lt;H2&gt;&amp;RIWO1-BAUTL(Z)&amp;&lt;/&gt; ,,&lt;H0&gt;&amp;RIWO1-BAUTX&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSEIF &amp;CAUFVD-SCREENTY&amp; = &apos;O130&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Serial number  ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-SERIALNR&amp;&lt;/&gt; ,,&lt;H0&gt;&amp;RIWO1-EQTXT&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Material       ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-MATNR(Z)&amp;&lt;/&gt; ,,&lt;H0&gt;&amp;RIWO1-MATKTX&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Device data    &lt;/&gt; ,,&lt;H2&gt;&amp;RIWO1-DEVICEID&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSEIF &amp;CAUFVD-SCREENTY&amp; = &apos;O140&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSEIF &amp;CAUFVD-SCREENTY&amp; = &apos;O150&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Equipment       ,,&lt;/&gt;&lt;H0&gt;&amp;RIWO1-EQUNR(Z)&amp;&lt;/&gt;       &lt;/&gt;        ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>        &lt;H0&gt;&amp;RIWO1-EQTXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSEIF &amp;CAUFVD-SCREENTY&amp; = &apos;O160&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Funct. location ,,&lt;/&gt;&lt;H0&gt;&amp;RIWO1-TPLNR&amp;&lt;/&gt; &lt;/&gt;  ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>  &lt;H0&gt;&amp;RIWO1-PLTXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSEIF &amp;CAUFVD-SCREENTY&amp; = &apos;O170&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Equipment       ,,&lt;/&gt;&lt;H0&gt;&amp;RIWO1-EQUNR(Z)&amp;&lt;/&gt;       &lt;/&gt;        ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>        &lt;H0&gt;&amp;RIWO1-EQTXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Serial number   ,,&lt;/&gt;&lt;H0&gt;&amp;RIWO1-SERIALNR&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Material        ,,&lt;/&gt;&lt;H0&gt;&amp;RIWO1-MATNR(Z)&amp;&lt;/&gt; ,,&lt;H0&gt;&amp;RIWO1-MATKTX&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Device data     &lt;/&gt; ,,&lt;H0&gt;&amp;RIWO1-DEVICEID&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Funct. location ,,&lt;/&gt;&lt;H0&gt;&amp;RIWO1-TPLNR&amp;&lt;/&gt; &lt;/&gt;  ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>  &lt;H0&gt;&amp;RIWO1-PLTXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Equipment       ,,&lt;/&gt;&lt;H0&gt;&amp;RIWO1-EQUNR(Z)&amp;&lt;/&gt;       &lt;/&gt;        ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>        &lt;H0&gt;&amp;RIWO1-EQTXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Assembly       &lt;/&gt; ,,&lt;H0&gt;&amp;RIWO1-BAUTL(Z)&amp;&lt;/&gt; ,,&lt;H0&gt;&amp;RIWO1-BAUTX&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Location       &lt;/&gt; ,,&lt;H2&gt; &amp;ILOA-STORT&amp;&lt;/&gt; ,,,, &lt;I0&gt;Room</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>         ,,                  &lt;H2&gt;&amp;ILOA-MSGRP&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;PM planner grp ,,&lt;/&gt;&lt;H2&gt;&amp;CAUFVD-INGPR&amp;&lt;/&gt;,,&lt;H0&gt;&amp;CAUFVD-INNAM&amp;&lt;/&gt; ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;PM plant       &lt;/&gt; ,,&lt;H2&gt;&amp;CAUFVD-IWERK&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Main work center,,&lt;/&gt;&lt;H2&gt;&amp;CAUFVD-VAPLZ&amp;&lt;/&gt; &lt;H2&gt;&amp;CAUFVD-VAWRK&amp;&lt;/&gt; ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;H0&gt;&amp;CAUFVD-VATXT&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Maintenance plan,,&lt;/&gt;&lt;H2&gt;&amp;CAUFVD-WARPL&amp;&lt;/&gt; ,,,,&lt;I0&gt;Maint. plan item</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;/&gt; ,,&lt;H2&gt;&amp;CAUFVD-WAPOS&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Revision number    ,,&lt;/&gt;&lt;H2&gt;&amp;CAUFVD-REVNR&amp;&lt;/&gt; ,,&lt;H0&gt;&amp;T352R-REVTX&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Start date    ,,&lt;/&gt;&lt;H2&gt;&amp;CAUFVD-GSTRS&amp;&lt;/&gt;    &lt;/&gt;     ,,,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;End date  &lt;/&gt; ,,&lt;H2&gt;&amp;CAUFVD-GLTRS&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>CE</TDFORMAT>
+     <TDLINE>&amp;uline(75)&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; ORDER HEADER SHORT---------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>ORDER_HEADER_SHORT</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;B2&gt;Order        ,,&amp;CAUFVD-AUFNR&amp;,,&amp;CAUFVD-KTEXT&amp;&lt;/&gt;        &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;CAUFVD-SCREENTY&amp; = &apos;O110&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Equipment    ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-EQUNR(Z)&amp;&lt;/&gt;    &lt;/&gt;     ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>     &lt;H0&gt;&amp;RIWO1-EQTXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Assembly       &lt;/&gt;       &lt;/&gt;        ,,         &lt;H2&gt;&amp;RIWO1-BAUTL(Z)&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt;&lt;/&gt; ,,  &lt;H0&gt;&amp;RIWO1-BAUTX&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSEIF &amp;CAUFVD-SCREENTY&amp; = &apos;O130&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Serial number  ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-SERIALNR&amp;&lt;/&gt;  &lt;/&gt;   ,,    &lt;H0&gt;&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&amp;RIWO1-EQTXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Material       ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-MATNR(Z)&amp;&lt;/&gt;       &lt;/&gt;        ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>        &lt;H0&gt;&amp;RIWO1-MATKTX&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Device data    &lt;/&gt;    &lt;/&gt;     ,,      &lt;H2&gt;&amp;RIWO1-DEVICEID&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSEIF &amp;CAUFVD-SCREENTY&amp; = &apos;O140&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSEIF &amp;CAUFVD-SCREENTY&amp; = &apos;O150&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Equipment      ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-EQUNR(Z)&amp;&lt;/&gt;      &lt;/&gt;       ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>       &lt;H0&gt;&amp;RIWO1-EQTXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSEIF &amp;CAUFVD-SCREENTY&amp; = &apos;O160&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Funct. location,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-TPLNR&amp;&lt;/&gt;&lt;/&gt; ,,  &lt;H0&gt;&amp;RIWO1-PLTXT&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSEIF &amp;CAUFVD-SCREENTY&amp; = &apos;O170&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Equipment      ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-EQUNR(Z)&amp;&lt;/&gt;      &lt;/&gt;       ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>       &lt;H0&gt;&amp;RIWO1-EQTXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Serial number  ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-SERIALNR&amp;&lt;/&gt;  &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Material       ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-MATNR(Z)&amp;&lt;/&gt;       &lt;/&gt;        ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>        &lt;H0&gt;&amp;RIWO1-MATKTX&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Device data    &lt;/&gt;    &lt;/&gt;     ,,      &lt;H2&gt;&amp;RIWO1-DEVICEID&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Funct. location,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-TPLNR&amp;&lt;/&gt;&lt;/&gt; ,,  &lt;H0&gt;&amp;RIWO1-PLTXT&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Equipment      ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-EQUNR(Z)&amp;&lt;/&gt;      &lt;/&gt;       ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>       &lt;H0&gt;&amp;RIWO1-EQTXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Assembly       &lt;/&gt;       &lt;/&gt;        ,,         &lt;H2&gt;&amp;RIWO1-BAUTL(Z)&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt;&lt;/&gt; ,,  &lt;H0&gt;&amp;RIWO1-BAUTX&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;PM planner grp ,,&lt;/&gt;&lt;H2&gt;&amp;CAUFVD-INGPR&amp;&lt;/&gt;&lt;I0&gt;,,&lt;/&gt;&lt;H0&gt;&amp;CAUFVD-INNAM&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt;&lt;I0&gt;,,PM plant  ,,&lt;/&gt;&lt;H2&gt;&amp;CAUFVD-IWERK&amp;&lt;/&gt;  &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Main work cntr ,,&lt;/&gt;&lt;H2&gt;&amp;CAUFVD-VAPLZ&amp;&lt;/&gt; &lt;/&gt;   &lt;H2&gt;&amp;CAUFVD-VAWRK&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt;&lt;/&gt; ,,  &lt;H0&gt;&amp;CAUFVD-VATXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; OPERATION  ----------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>OPERATION</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T3</TDFORMAT>
+     <TDLINE>&amp;AFVGD-VORNR&amp;    &lt;B2&gt;&amp;AFVGD-LTXA1+0(40)&amp;,, &lt;727&gt;/&lt;727&gt;    _____&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>,,&lt;/&gt;&lt;H2&gt;&amp;AFVGD-ARBEI(C)&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE> &lt;H2&gt;&amp;AFVGD-ARBEH&amp;&lt;/&gt; &lt;/&gt;&lt;H2&gt;&amp;AFVGD-DAUNO(C)&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE> &lt;/&gt;&lt;H2&gt;&amp;AFVGD-DAUNO(C)&amp;&lt;/&gt;  ,,&lt;H2&gt;&amp;AFVGD-VSTTXT&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;B2&gt;Operation  ,,&amp;AFVGD-VORNR&amp;,,&amp;AFVGD-UVORN&amp;&lt;/&gt;,,&lt;B2&gt;&amp;AFVGD-LTXA1&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Status         &lt;/&gt; ,,&lt;H2&gt;&amp;AFVGD-VSTTXT&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Work center   &lt;/&gt; ,,&lt;H2&gt;&amp;RCR01-ARBPL&amp;&lt;/&gt; ,,   &lt;H2&gt;&amp;RCR01-WERKS&amp;,,&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;H0&gt;&amp;RCR01-KTEXT&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Control key,,&lt;/&gt;&lt;H2&gt;&amp;AFVGD-STEUS&amp;&lt;/&gt;  ,,,,&lt;I0&gt;Confirmation number&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>,,&lt;H2&gt;&amp;AFVGD-RUECK(Z)&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Operation key  ,,&lt;/&gt;&lt;H2&gt;&amp;AFVGD-KTSCH&amp;&lt;/&gt;  ,,,,&lt;I0&gt;Milestone    &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>,,&lt;H2&gt;&amp;AFVGD-MLSTN&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Funct. location&lt;/&gt; ,,&lt;H2&gt;&amp;AFVGD-TPLNR&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Equipment      &lt;/&gt; ,,&lt;H2&gt;&amp;AFVGD-EQUNR&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; OPERATION SHORT  ----------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>OPERATION_SHORT</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T3</TDFORMAT>
+     <TDLINE>&lt;B2&gt;Operation  ,,&amp;AFVGD-VORNR&amp;,,&amp;AFVGD-UVORN&amp;&lt;/&gt;  &lt;/&gt;   ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>   &lt;B2&gt;&amp;AFVGD-LTXA1&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Work center   &lt;/&gt;   &lt;/&gt;    ,,     &lt;H2&gt;&amp;RCR01-ARBPL&amp;&lt;/&gt;&lt;/&gt; ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>    &lt;H2&gt;&amp;RCR01-WERKS&amp;&lt;/&gt;&lt;/&gt; ,,  &lt;H0&gt;&amp;RCR01-KTEXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; INTERNAL WORK--------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>INTERNAL_WORK</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Work          ,,&lt;/&gt;&lt;H2&gt;&amp;AFVGD-ARBEI(C)&amp;&lt;/&gt; ,,   &lt;H2&gt;&amp;AFVGD-ARBEH&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>,,&lt;I0&gt;Activity type  &lt;/&gt; ,,&lt;H2&gt;&amp;AFVGD-LARNT&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Duration      ,,&lt;/&gt;&lt;H2&gt;&amp;AFVGD-DAUNO(C)&amp;&lt;/&gt; ,,   &lt;H2&gt;&amp;AFVGD-DAUNE&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>,,&lt;I0&gt;Number         &lt;/&gt; ,,&lt;H2&gt;&amp;AFVGD-ANZZL(C)&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Earliest start date,,&lt;/&gt;&lt;H2&gt;&amp;AFVGD-FSAVD&amp;&lt;/&gt;&lt;I0&gt;,,&lt;/&gt; ,,&lt;I0&gt;Start</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>time   &lt;/&gt; ,,&lt;H2&gt;&amp;AFVGD-FSAVZ&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Latest end date  ,,&lt;/&gt;&lt;H2&gt;&amp;AFVGD-SSEDD&amp;&lt;/&gt;&lt;I0&gt;,,&lt;/&gt;,, &lt;I0&gt;End time</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>    &lt;/&gt; ,,&lt;H2&gt;&amp;AFVGD-SSEDZ&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Actual labor      ,,&lt;/&gt;&lt;H2&gt;&amp;AFVGD-ISMNW(C)&amp;&lt;/&gt; ,,&lt;H2&gt;&amp;AFVGD-ARBEH&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;/&gt; ,,&lt;I0&gt;Total float   &lt;/&gt; ,,&lt;H2&gt;&amp;AFVGD-PUFGP(C)&amp;&lt;/&gt;   &lt;H2&gt;&amp;AFVGD-ARBEH&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; EXTERNAL WORK -------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>EXTERNAL_WORK</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;External service ,,&lt;/&gt;&lt;H2&gt;&amp;AFVGD-MGVRG(C)&amp;&lt;/&gt;  &lt;H2&gt;&amp;AFVGD-MEINH&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>  ,,,,&lt;I0&gt;Activity type  &lt;/&gt; ,,&lt;H2&gt;&amp;AFVGD-LARNT&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Price            ,,&lt;/&gt;&lt;H2&gt;&amp;AFVGD-PREIS(C)&amp;&lt;/&gt;  &lt;H2&gt;&amp;AFVGD-WAERS&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>  ,,,,&lt;I0&gt;Pro          &lt;/&gt; ,,&lt;H2&gt;&amp;AFVGD-PEINH(C)&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Earliest start date,,&lt;/&gt;&lt;H2&gt;&amp;AFVGD-FSAVD&amp;&lt;/&gt;&lt;I0&gt;,,&lt;/&gt; ,,&lt;I0&gt;Start</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>time   &lt;/&gt; ,,&lt;H2&gt;&amp;AFVGD-FSAVZ&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Latest end date  ,,&lt;/&gt;&lt;H2&gt;&amp;AFVGD-SSEDD&amp;&lt;/&gt;&lt;I0&gt;,,&lt;/&gt; ,,&lt;I0&gt;End time</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>    &lt;/&gt; ,,&lt;H2&gt;&amp;AFVGD-SSEDZ&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Actual labor     ,,&lt;/&gt;&lt;H2&gt;&amp;AFVGD-ISMNW(C)&amp;&lt;/&gt; ,, &lt;H2&gt;&amp;AFVGD-ARBEH&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;/&gt; ,,&lt;I0&gt;Total float  &lt;/&gt; ,,&lt;H2&gt;&amp;AFVGD-PUFGP(C)&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T3</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Purchase requisition ,,&lt;/&gt;&lt;H0&gt;&amp;AFVGD-BANFN(Z)&amp;&lt;/&gt; &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Vendor ,,&lt;/&gt;&lt;H0&gt;&amp;lfa1-name1&amp;&lt;/&gt; &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; OBJECT LIST ---------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>OBJECT_TITLE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;B2&gt;Object list for order: &lt;/&gt; &lt;/&gt;  &lt;B2&gt;&amp;CAUFVD-AUFNR&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>  &lt;B2&gt;&amp;CAUFVD-KTEXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>OBJECT_LIST</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Sort field       ,,&lt;/&gt;&lt;H2&gt;&amp;RIPW0-SORTF&amp;&lt;/&gt;&lt;I0&gt;,,,,Processing status</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt;&lt;/&gt;    &lt;H2&gt;&amp;RIPW0-BEARB&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Funct. location  ,,&lt;/&gt;&lt;H2&gt;&amp;RIPW0-TPLNR&amp;&lt;/&gt;  &lt;/&gt;   ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>   &lt;H0&gt;&amp;RIPW0-PLTXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Equipment        ,,&lt;/&gt;&lt;H2&gt;&amp;RIPW0-EQUNR(Z)&amp;&lt;/&gt;        &lt;/&gt;         ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>         &lt;H0&gt;&amp;RIPW0-EQTXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Assembly         &lt;/&gt;         &lt;/&gt;          ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>          &lt;H2&gt;&amp;RIPW0-BAUTL(Z)&amp;&lt;/&gt;&lt;/&gt;  ,,    &lt;H0&gt;&amp;RIPW0-BAUTX&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Serial number    ,,&lt;/&gt;&lt;H2&gt;&amp;RIPW0-SERNR&amp;&lt;/&gt;&lt;I0&gt;,,Material&lt;/&gt;&lt;/&gt; ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE> &lt;H0&gt;&amp;RIPW0-MATNR&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Notification no.&lt;/&gt;&lt;/&gt; ,,  &lt;H2&gt;&amp;RIPW0-IHNUM(Z)&amp;&lt;/&gt;&lt;/&gt;,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;H0&gt;&amp;RIPW0-QMTXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; MATERIAL ------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>MATERIAL</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;B2&gt;Material   &lt;/&gt;   &lt;/&gt;    ,,     &lt;B2&gt;&amp;RESBD-MATNR(C)&amp;&lt;/&gt;&lt;/&gt; ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE> &lt;B2&gt;&amp;RESBD-MENGE(C)&amp;&lt;/&gt;&lt;/&gt;   &lt;B2&gt;&amp;RESBD-EINHEIT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE> ,,  &lt;B2&gt;&amp;RESBD-MATXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Purchase requisition&lt;/&gt;&lt;/&gt; ,,  &lt;H2&gt;&amp;RESBD-BANFNR&amp;&lt;/&gt;&lt;/&gt; ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE> &lt;I0&gt;Formatting text &lt;/&gt; &lt;/&gt;   ,,     &lt;H2&gt;&amp;RESBD-STTXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Reservation number &lt;/&gt; &lt;/&gt;  ,,   &lt;H2&gt;&amp;RESBD-RSNUM(Z)&amp;&lt;/&gt;&lt;/&gt;  ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>   &lt;I0&gt;Plant / storage location&lt;/&gt;&lt;/&gt;  ,,    &lt;H2&gt;&amp;RESBD-WERKS&amp;&lt;/&gt;&lt;/&gt; /</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>&lt;H2&gt;&amp;RESBD-LGORT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Unloading point   &lt;/&gt;   &lt;/&gt;    ,,     &lt;H2&gt;&amp;RESBD-ABLAD&amp;&lt;/&gt;&lt;/&gt; ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE> &lt;I0&gt;Goods recipient&lt;/&gt;&lt;/&gt; ,,  &lt;H2&gt;&amp;RESBD-WEMPF&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; PRODUCTION RESOURCE -------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>PRT_EQUI</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;B2&gt;PRT (equipment) &lt;/&gt; &lt;/&gt;  ,,   &lt;B2&gt;&amp;AFFHD-EQUNR&amp;&lt;/&gt;&lt;/&gt; ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>  &lt;B2&gt;&amp;AFFHD-FHKTX&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Measuring point  &lt;/&gt;  &lt;/&gt;   ,,    &lt;H2&gt;&amp;AFFHD-EQPNT(C)&amp; &amp;AFFHD-EQPTX&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt; &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Start date    &lt;/&gt;    &lt;/&gt;     ,,      &lt;H2&gt;&amp;AFFHD-SSFHD&amp;&amp;AFFHD-SSFHZ&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt;&lt;/&gt;  ,,    &lt;I0&gt;End date   &lt;/&gt;   &lt;/&gt;    ,,     &lt;H2&gt;&amp;AFFHD-SEFHD&amp;&amp;AFFHD-SEFHZ&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>PRT_MAT</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;B2&gt;PRT (material)&lt;/&gt;&lt;/&gt; ,,  &lt;B2&gt;&amp;AFFHD-FHMNR&amp;&lt;/&gt;&lt;/&gt; ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>  &lt;B2&gt;&amp;AFFHD-FHKTX&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Quantity          &lt;/&gt;          &lt;/&gt;           ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>           &lt;H2&gt;&amp;AFFHD-MGSOL(C)&amp;&amp;AFFHD-MGSOLEH&amp;&lt;/&gt;&lt;/&gt;  ,,    &lt;I0&gt;Plant</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>         &lt;/&gt;          &lt;/&gt;           ,,&amp;AFFHD-FHWRK&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Start date    &lt;/&gt;    &lt;/&gt;     ,,      &lt;H2&gt;&amp;AFFHD-SSFHD&amp;&amp;AFFHD-SSFHZ&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt;&lt;/&gt;  ,,    &lt;I0&gt;End date   &lt;/&gt;   &lt;/&gt;    ,,     &lt;H2&gt;&amp;AFFHD-SEFHD&amp;&amp;AFFHD-SEFHZ&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>PRT_OTHER</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;B2&gt;PRT        &lt;/&gt;        &lt;/&gt;         ,,          &lt;B2&gt;&amp;AFFHD-FHMNR&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt; ,,   &lt;B2&gt;&amp;AFFHD-FHKTX&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Quantity       &lt;/&gt;       &lt;/&gt;        ,,         &lt;H2&gt;&amp;AFFHD-MGSOL(C)&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>&amp;AFFHD-MGSOLEH&amp;&lt;/&gt; &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Start date    &lt;/&gt;    &lt;/&gt;     ,,      &lt;H2&gt;&amp;AFFHD-SSFHD&amp;&amp;AFFHD-SSFHZ&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt;&lt;/&gt;  ,,    &lt;I0&gt;End date   &lt;/&gt;   &lt;/&gt;    ,,     &lt;H2&gt;&amp;AFFHD-SEFHD&amp;&amp;AFFHD-SEFHZ&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>PRT_DOCUMENT</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;B2&gt;Document    &lt;/&gt;    &lt;/&gt;     ,,      &lt;B2&gt;&amp;AFFHD-FHMNR&amp;&lt;/&gt;&lt;/&gt; ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>  &lt;B2&gt;&amp;AFFHD-FHKTX&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Quantity       &lt;/&gt;       &lt;/&gt;        ,,         &lt;H2&gt;&amp;AFFHD-MGSOL(C)&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>&amp;AFFHD-MGSOLEH&amp;&lt;/&gt; &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Start date     &lt;/&gt;     &lt;/&gt;      ,,       &lt;H2&gt;&amp;AFFHD-SSFHD&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&amp;AFFHD-SSFHZ&amp;&lt;/&gt;&lt;/&gt;  ,,    &lt;I0&gt;End date   &lt;/&gt;   &lt;/&gt;    ,,     &lt;H2&gt;&amp;AFFHD-SEFHD&amp;&amp;AFFHD-SEFHZ&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Status         &lt;/&gt;         &lt;/&gt;          ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>          &lt;H2&gt;&amp;AFFHD-FSTTXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; PERMIT --------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>PRT_MPO</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;B2&gt;Measuring Pt&lt;/&gt;&lt;/&gt; ,,  &lt;B2&gt;&amp;AFFHD-EQPNT&amp;&lt;/&gt;&lt;/&gt; ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>  &lt;B2&gt;&amp;AFFHD-FHKTX&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Quantity       &lt;/&gt;       &lt;/&gt;        ,,         &lt;H2&gt;&amp;AFFHD-MGSOL(C)&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>&amp;AFFHD-MGSOLEH&amp;&lt;/&gt; &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Start date     &lt;/&gt;     &lt;/&gt;      ,,       &lt;H2&gt;&amp;AFFHD-SSFHD&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>&amp;AFFHD-SSFHZ&amp;&lt;/&gt; &lt;/&gt;   ,,     &lt;I0&gt;End date    &lt;/&gt;    &lt;/&gt;     ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE> &lt;H2&gt;&amp;AFFHD-SEFHD&amp; &amp;AFFHD-SEFHZ&amp;&lt;/&gt; &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; PERMIT --------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>PERMIT</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;B2&gt;Permit    ,,&lt;/&gt;&lt;H0&gt;&amp;V_T357G-SOGEN&amp;&lt;/&gt;    &lt;/&gt;     &lt;H0&gt;&amp;V_T357G-GNTXT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt;&lt;/&gt; &lt;H0&gt;&amp;V_T357G-GTTXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>GRANT</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Authorized by    ,,&lt;/&gt;&lt;H2&gt;&amp;IHGNS-GENNAME&amp;&lt;/&gt;    &lt;/&gt;     ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>     &lt;H2&gt;&amp;IHGNS-GENDATUM&amp;&lt;/&gt;&lt;/&gt;  ,,    &lt;H2&gt;&amp;IHGNS-GENTIME&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Issued by        ,,&lt;/&gt;&lt;H2&gt;&amp;IHGNS-GENVNAME&amp;&lt;/&gt;        &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Time delimitation,,&lt;/&gt;&lt;H2&gt;&amp;IHGNS-GENVDATE&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>&lt;H2&gt;&amp;IHGNS-GENVTIME&amp;&lt;/&gt;&lt;/&gt;  ,,    &lt;H2&gt;&amp;IHGNS-GENBDATE&amp;&lt;/&gt;&lt;/&gt; &lt;H2&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&amp;IHGNS-GENBTIME&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; CLASSIFICATION ------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>CLASS</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;B2&gt;Class         &lt;/&gt;         &lt;/&gt;          ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>          &lt;H2&gt;&amp;API_KSSK-CLASS&amp;&lt;/&gt;&lt;/&gt; ,,  &lt;H2&gt;&amp;API_KSSK-KLTXT&amp;&lt;/&gt;&lt;/&gt;  ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>   &lt;H2&gt;&amp;API_KSSK-KLART&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>CLASS_FEATURE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;H0&gt;&amp;API_VAL_R-CHARACT&amp;&lt;/&gt;&lt;/&gt; ,,,,  &lt;H0&gt;&amp;API_VAL_R-VALUE&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>CLASS_FEATURE_INHERITED</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;H0&gt;&amp;API_VAL_R-CHARACT&amp;&lt;/&gt;&lt;/&gt; ,,,,  &lt;H0&gt;&amp;API_VAL_R-VALUE&amp;&lt;/&gt;&lt;/&gt;   &lt;I0&gt;&lt;-</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>- Default value&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; TIME TICKET END -----------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>TIME_TICKET_END</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Work           ,,&lt;/&gt;&lt;H2&gt;&amp;AFVGD-ARBEI(C)&amp;&lt;/&gt;           &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>           ,,               &lt;H2&gt;&amp;AFVGD-ARBEH&amp;&lt;/&gt;&lt;/&gt; ,,  &lt;I0&gt;Activity</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>type   &lt;/&gt;   &lt;/&gt;    ,,     &lt;H2&gt;&amp;AFVGD-LARNT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Duration       &lt;/&gt;       &lt;/&gt;        ,,         &lt;H2&gt;&amp;AFVGD-DAUNO(C)&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt;&lt;/&gt; ,,    &lt;H2&gt;&amp;AFVGD-DAUNE&amp;&lt;/&gt;&lt;/&gt; ,,  &lt;I0&gt;Number         &lt;/&gt;         &lt;/&gt;          ,,           &lt;H2&gt;&amp;AFVGD-ANZZL(C)&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Earliest start date,,&lt;/&gt;&lt;H2&gt;&amp;AFVGD-FSAVD&amp;&lt;/&gt;&lt;/&gt; ,,,,  &lt;I0&gt;Start time</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>  &lt;/&gt;   &lt;/&gt;    ,,     &lt;H2&gt;&amp;AFVGD-FSAVZ&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Latest end date ,,&lt;/&gt;&lt;H2&gt;&amp;AFVGD-SSEDD&amp;&lt;/&gt; &lt;/&gt;  ,,,,   &lt;I0&gt;End time</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>    &lt;/&gt;     &lt;/&gt;      ,,       &lt;H2&gt;&amp;AFVGD-SSEDZ&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Actual labor    ,,&lt;/&gt;&lt;H2&gt;&amp;AFVGD-ISMNW(C)&amp;&lt;/&gt;    &lt;/&gt;     ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>      &lt;H2&gt;&amp;AFVGD-ARBEH&amp;&lt;/&gt;&lt;/&gt; ,,  &lt;I0&gt;Total float   &lt;/&gt;   &lt;/&gt;    ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>    &lt;H2&gt;&amp;AFVGD-PUFGP(C)&amp;&lt;/&gt;&lt;/&gt; &lt;H2&gt;&amp;AFVGD-ARBEH&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Confirmation number&lt;/&gt;&lt;/&gt; ,,  &lt;H2&gt;&amp;AFVGD-RUECK(Z)&amp;&lt;/&gt;&lt;/&gt;  ,,,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>   &lt;BC&gt;&amp;AFVGD-RUECK&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;B2&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE> _____________________________________________________________________</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>&lt;/&gt; &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;B2&gt;|1     |2     |3 |4     |5     |6     |7     |8     |9     |10    |</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>&lt;/&gt; &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;B2&gt;|      |      |      |      |      |      | |      |      |      |</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>&lt;/&gt; &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;B2&gt;|______|______|______|______|______|______|______|______|______|____</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>__|&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;B2&gt;|11    |12    |13    |14    |15    |16    |17    |18    |19    |20</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>   |&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;B2&gt;|      |      |      | |      |      |      |      |      |      |</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>&lt;/&gt; &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;B2&gt;|______|______|______|______|______|______|______|______|______|____</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>__|&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;B2&gt;|21    |22    |23    |24    |25    |26    |27    |28    |29    |30</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>  |&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;B2&gt;|      |      |      |      |      |      |      |      |      |</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>     |&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;B2&gt;|______|______|______|______|______|______|______|______|______|____</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>__|&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;B2&gt;|31    |Comment:                                |&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;B2&gt;|      |</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>                                                             |&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;B2&gt;|______|____________________________________________________________</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>__|&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Personnel number  &lt;/&gt;  &lt;/&gt;   ,,    &lt;H2&gt;__________________&lt;/&gt;&lt;/&gt;  ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>,,    &lt;I0&gt;Time required  &lt;/&gt;  &lt;/&gt;   ,,    &lt;H2&gt;___________________&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Signature    &lt;/&gt;    &lt;/&gt;     ,,      &lt;H2&gt;__________________&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; TIME TICKET START SPLIT ---------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>SPLIT_NAME</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>&lt;I2&gt;Name        ,,&lt;/&gt;&lt;B2&gt;&amp;KBEDP-ENAME&amp;&lt;/&gt;        &lt;/&gt;         ,, ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>           &lt;I0&gt;Phone       &lt;/&gt;       &lt;/&gt;        ,,         &lt;H0&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&amp;KBEDP-TELNR&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; TIME TICKET END SPLIT -----------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>TIME_TICKET_END_SPLIT</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Work         ,,&lt;/&gt;&lt;H2&gt;&amp;KBEDP-KBEAREST(.2EC)&amp;&lt;/&gt;         &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>         ,,               &lt;H2&gt;&amp;KBEDP-ARBEH&amp;&lt;/&gt;&lt;/&gt; ,,  &lt;I0&gt;&lt;Activity type</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>  &lt;/&gt;   &lt;/&gt;    ,,     &lt;H2&gt;&amp;AFVGD-LARNT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Earliest start date&lt;/&gt;&lt;/&gt;,,&lt;H2&gt;&amp;KBEDP-FSSBD&amp;&lt;/&gt;&lt;/&gt; ,,,,  &lt;I0&gt;Start</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>time   &lt;/&gt;   &lt;/&gt;    ,,     &lt;H2&gt;&amp;KBEDP-FSSBZ&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Latest end date ,,&lt;/&gt;&lt;H2&gt;&amp;KBEDP-SSSAD&amp;&lt;/&gt; &lt;/&gt;  ,,,,   &lt;I0&gt;End time</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>    &lt;/&gt;     &lt;/&gt;      ,,       &lt;H2&gt;&amp;KBEDP-SSSAZ&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I2&gt;Confirmation number&lt;/&gt;&lt;/&gt; ,,  &lt;B2&gt;&amp;AFVGD-RUECK(Z)&amp;&lt;/&gt;&lt;/&gt; ,,,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE> &lt;I0&gt;Split number    &lt;/&gt;    &lt;/&gt;     ,,      &lt;H2&gt;&amp;KBEDP-SPLIT&amp;&lt;/&gt; &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Personal number  &lt;/&gt;  &lt;/&gt;   ,,    &lt;U2&gt;&amp;KBEDP-PERNR&amp;&lt;/&gt;&lt;/&gt;   ,,,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>     &lt;I0&gt;Time required  &lt;/&gt;  &lt;/&gt;   ,,    &lt;H2&gt;_________________&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Signature    &lt;/&gt;&lt;H2&gt; ,,__________________&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; CONFIRM END ---------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>CONFIRM_END</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Confirmation number&lt;/&gt;&lt;/&gt; ,,  &lt;H2&gt;&amp;AFVGD-RUECK(Z)&amp;&lt;/&gt;&lt;/&gt;  ,,,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>   &lt;BC&gt;&amp;AFVGD-RUECK(Z)&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Start date        &lt;/&gt;        &lt;/&gt;         ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>         &lt;H2&gt;__________________&lt;/&gt;&lt;/&gt; ,,,,   &lt;I0&gt;End date       &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>      &lt;/&gt;        ,,         &lt;H2&gt;___________________&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Time required    &lt;/&gt;    &lt;/&gt;     ,,      &lt;H2&gt;__________________&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>,,,,   &lt;I0&gt;Completed        &lt;/&gt;        &lt;/&gt;         ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>         &lt;H2&gt;___________________&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Estimated time remaining&lt;/&gt;&lt;/&gt; ,,  &lt;H2&gt;__________________&lt;/&gt;&lt;/&gt;  ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>,,     &lt;I0&gt;Activity type       &lt;/&gt;       &lt;/&gt;        ,,         &lt;H2&gt;___________________&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Confirmation text      &lt;/&gt;      &lt;/&gt;        ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>          &lt;H2&gt;______________________________________________________&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Personal number     &lt;/&gt;     &lt;/&gt;      ,,       &lt;H2&gt;_________________</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt;&lt;/&gt; ,,,,   &lt;I0&gt;Signature    &lt;/&gt;    &lt;/&gt;     ,,      &lt;H2&gt;___________________&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; CONFIRM END SPLIT ---------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>CONFIRM_END_SPLIT</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Confirmation number&lt;/&gt;&lt;/&gt; ,,  &lt;H2&gt;&amp;AFVGD-RUECK(Z)&amp;&lt;/&gt;&lt;/&gt;   ,,,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>     &lt;I0&gt;Split number  &lt;/&gt;  &lt;/&gt;   ,,    &lt;H2&gt;&amp;KBEDP-SPLIT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Assigned person &lt;/&gt; &lt;/&gt;  ,,   &lt;H2&gt;&amp;KBEDP-PERNR&amp;&lt;/&gt;&lt;/&gt; ,,,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE> &lt;I0&gt;Assigned  &lt;/&gt;  &lt;/&gt;   ,,    &lt;H2&gt;&amp;KBEDP-ENAME&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Start date        &lt;/&gt;        &lt;/&gt;         ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>         &lt;H2&gt;__________________&lt;/&gt;&lt;/&gt; ,,,,   &lt;I0&gt;End date       &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>      &lt;/&gt;        ,,         &lt;H2&gt;___________________&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Time required    &lt;/&gt;    &lt;/&gt;     ,,      &lt;H2&gt;__________________&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>,,,,   &lt;I0&gt;Completed &lt;/&gt; &lt;/&gt;   ,,     &lt;H2&gt;___________________&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Estimated time remaining&lt;/&gt;&lt;/&gt; ,,  &lt;H2&gt;__________________&lt;/&gt;&lt;/&gt;  ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>,,     &lt;I0&gt;Service category    &lt;/&gt;    &lt;/&gt;     ,,      &lt;H2&gt;___________________&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Confirmation text      &lt;/&gt;      &lt;/&gt;        ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>          &lt;H2&gt;______________________________________________________&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Personnel number   &lt;/&gt;   &lt;/&gt;    ,,     &lt;H2&gt;____________________&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt; ,,,,   &lt;I0&gt;Name             &lt;/&gt;             &lt;/&gt;              ,,               &lt;H2&gt;____________________&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>SRV</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;I0&gt;The operation contains the following services:&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Item,,Service,,Description&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Quantity,,               Unit,, Labor,,Unit&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>SERVICES</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;ML_ESLL-RANG(C)&amp; EQ &apos;0&apos; AND &amp;ML_ESLL-EXTGROUP&amp; NE &apos; &apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>,,&amp;ML_ESLL-EXTGROUP&amp;,,&amp;ML_ESLL-KTEXT1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;ML_ESLL-RANG(C)&amp; EQ &apos;1&apos; AND &amp;ML_ESLL-EXTGROUP&amp; NE &apos; &apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>* ,,&amp;ML_ESLL-EXTGROUP&amp;,,&amp;ML_ESLL-KTEXT1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;ML_ESLL-RANG(C)&amp; EQ &apos;2&apos; AND &amp;ML_ESLL-EXTGROUP&amp; NE &apos; &apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>** ,,&amp;ML_ESLL-EXTGROUP&amp;,,&amp;ML_ESLL-KTEXT1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;ML_ESLL-RANG(C)&amp; EQ &apos;3&apos; AND &amp;ML_ESLL-EXTGROUP&amp; NE &apos; &apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>*** ,,&amp;ML_ESLL-EXTGROUP&amp;,,&amp;ML_ESLL-KTEXT1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;ML_ESLL-RANG(C)&amp; EQ &apos;4&apos; AND &amp;ML_ESLL-EXTGROUP&amp; NE &apos; &apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>**** ,,&amp;ML_ESLL-EXTGROUP&amp;,,&amp;ML_ESLL-KTEXT1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;ML_ESLL-RANG(C)&amp; EQ &apos;0&apos; AND &amp;ML_ESLL-EXTGROUP&amp; EQ &apos; &apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;ML_ESLL-SRVPOS&amp; NE &apos;   &apos;.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&amp;ML_ESLL-EXTROW(Z)&amp;,,&amp;ML_ESLL-SRVPOS&amp;,,&amp;ML_ESLL-KTEXT1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&amp;ML_ESLL-EXTROW(Z)&amp;,,,,&amp;ML_ESLL-KTEXT1&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;ML_ESLL-STLVPOS(C)&amp; NE &apos; &apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>,,&lt;I0&gt;Standard-LV-Nr.,,&amp;ml_esll-ausgb(I)&apos;/&apos;&amp;&amp;ml_esll-lbnum(I)&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>&amp;ml_esll-stlvpos&amp;&lt;/&gt; &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;ML_ESLL-INT_WORK&amp; NE &apos;          &apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&amp;ML_ESLL-MENGE&amp;,,&amp;ML_ESLL-MEINS&amp;,,&amp;ML_ESLL-INT_WORK&amp;,,&amp;ML_ESLL-IWEIN&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&amp;ML_ESLL-MENGE&amp;,,&amp;ML_ESLL-MEINS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>ITEM_TEXT</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>,,&amp;TTXIT-TDTEXT&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>INCLUDE &amp;THEAD-TDNAME&amp; OBJECT &amp;THEAD-TDOBJECT&amp; ID &amp;THEAD-TDID&amp; LANGUAGE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>TIME_DATA</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>,,&lt;I0&gt;Time data for service&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;ML_ESLL-PERNR&amp; NE &apos;00000000&apos; OR &amp;ML_ESLL-PERSEXT&amp; NE &apos; &apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;,,&amp;&apos;Person no.&apos;ML_ESLL-PERNR&apos;&apos;&amp;&amp;&apos;ext. Person no.&apos;ML_ESLL-PERSEXT&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;ML_ESLL-SDATE&amp; NE &apos;          &apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;,,&apos;Workday &apos;&amp;ML_ESLL-SDATE&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;ML_ESLL-BEGTIME&amp; NE &apos;          &apos; OR  &amp;ML_ESLL-ENDTIME&amp; NE &apos;          &apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;,,&amp;&apos;von&apos;ML_ESLL-BEGTIME&amp;&apos; &apos;&amp;&apos;bis&apos;ML_ESLL-ENDTIME&apos; Time &apos;&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>FORMEL_KOPF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>,,Form for activity</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>,,&amp;FORMEL-FORMELBEZ&apos;:&apos;&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>,,&amp;FORMEL-FORMEL&amp;  &amp;&apos;in &apos;FORMEL-MEINS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>FORMEL_BODY</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>FO</TDFORMAT>
+     <TDLINE>,,&amp;VARIABLEN-VARNO&amp;,,=,,&amp;ML_ESLL-FRMVAL1&amp;,,&amp;VARIABLEN-MEINS&amp;,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&amp;&apos;(&apos;VARIABLEN-VARBEZ&apos;)&apos;&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>========================================================================</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>NOTIFICATION (following Textelements are for notification printing)</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>========================================================================</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; NOTIF HEADER DETAIL -------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>NOTIF_HEADER_DETAIL</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Notification   ,,&lt;/&gt;&lt;H2&gt;&amp;VIQMEL-QMNUM&amp;&lt;/&gt;   &lt;/&gt;    ,,,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>    &lt;I0&gt;Notification type   &lt;/&gt;   &lt;/&gt;    ,,     &lt;H2&gt;&amp;VIQMEL-QMART&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF NOT &amp;VIQMEL-QMKAT&amp; = &apos; &apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Subject matter &lt;/&gt; &lt;/&gt;  ,,   &lt;H2&gt; &amp;VIQMEL-QMGRP&amp;&lt;/&gt; &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE> &lt;H0&gt;&amp;VIQMEL-QMCOD&amp;&lt;/&gt;&lt;/&gt; ,,  &lt;H0&gt;&amp;FACT_TXTCDGR&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Description    ,,&lt;/&gt;&lt;H2&gt; &amp;VIQMEL-QMTXT&amp;&lt;/&gt;     &lt;/&gt;      ,,,,,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>      &lt;H0&gt;&amp;TQ80_T-QMARTX&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Reporter       ,,&lt;/&gt;&lt;H2&gt;&amp;VIQMEL-QMNAM&amp;&lt;/&gt;       &lt;/&gt;        ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>        &lt;H0&gt;&amp;VIQMEL-MZEIT&amp;&lt;/&gt;&lt;/&gt; ,,  &lt;I0&gt;Notification date &lt;/&gt; &lt;/&gt;   ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>  &lt;H2&gt;&amp;VIQMEL-QMDAT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Start date     ,,&lt;/&gt;&lt;H2&gt;&amp;VIQMEL-STRMN&amp;&lt;/&gt;     &lt;/&gt;      ,,,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>      &lt;I0&gt;End date      &lt;/&gt;      &lt;/&gt;       ,,        &lt;H2&gt;&amp;VIQMEL-LTRMN&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Start time     ,,&lt;/&gt;&lt;H2&gt;&amp;VIQMEL-STRUR&amp;&lt;/&gt;     &lt;/&gt;      ,,,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>      &lt;I0&gt;End time     &lt;/&gt;     &lt;/&gt;      ,,        &lt;H2&gt;&amp;VIQMEL-LTRUR&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Priority       ,,&lt;/&gt;&lt;H2&gt;&amp;VIQMEL-ARTPR&amp; &amp;VIQMEL-PRIOK&amp;&lt;/&gt;        &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>          ,,              &lt;H0&gt;&amp;T356_T-PRIOKX&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;VIQMEL-SCREENTY&amp; = &apos;O110&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Equipment      ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-EQUNR(Z)&amp;&lt;/&gt;      &lt;/&gt;       ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>       &lt;H0&gt;&amp;RIWO1-EQTXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Assembly       &lt;/&gt;       &lt;/&gt;        ,,         &lt;H2&gt;&amp;RIWO1-BAUTL(Z)&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt;&lt;/&gt; ,,  &lt;H0&gt;&amp;RIWO1-BAUTX&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSEIF &amp;VIQMEL-SCREENTY&amp; = &apos;O130&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Serial number  ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-SERIALNR&amp;&lt;/&gt;  &lt;/&gt;   ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>   &lt;H0&gt;&amp;RIWO1-EQTXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Material       ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-MATNR(Z)&amp;&lt;/&gt;       &lt;/&gt;        ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>        &lt;H0&gt;&amp;RIWO1-MATKTX&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Device data    &lt;/&gt;    &lt;/&gt;     ,,      &lt;H2&gt;&amp;RIWO1-DEVICEID&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSEIF &amp;VIQMEL-SCREENTY&amp; = &apos;O140&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSEIF &amp;VIQMEL-SCREENTY&amp; = &apos;O150&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Equipment      ,,/&gt;&lt;/&gt;&lt;H2&gt;&amp;RIWO1-EQUNR(Z)&amp;&lt;/&gt;&lt;/&gt; ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE> &lt;H0&gt;&amp;RIWO1-EQTXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSEIF &amp;VIQMEL-SCREENTY&amp; = &apos;O160&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Funct. location,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-TPLNR&amp;&lt;/&gt;&lt;/&gt; ,,  &lt;H0&gt;&amp;RIWO1-PLTXT&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSEIF &amp;VIQMEL-SCREENTY&amp; = &apos;O170&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Equipment      ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-EQUNR(Z)&amp;&lt;/&gt;      &lt;/&gt;       ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>       &lt;H0&gt;&amp;RIWO1-EQTXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Serial number  ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-SERIALNR&amp;&lt;/&gt;  &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Material       ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-MATNR(Z)&amp;&lt;/&gt;       &lt;/&gt;        ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>        &lt;H0&gt;&amp;RIWO1-MATKTX&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Device data    &lt;/&gt;    &lt;/&gt;     ,,      &lt;H2&gt;&amp;RIWO1-DEVICEID&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Funct. location,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-TPLNR&amp;&lt;/&gt;&lt;/&gt; ,,  &lt;H0&gt;&amp;RIWO1-PLTXT&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Equipment      ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-EQUNR(Z)&amp;&lt;/&gt;      &lt;/&gt;       ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>       &lt;H0&gt;&amp;RIWO1-EQTXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Assembly       &lt;/&gt;       &lt;/&gt;        ,,         &lt;H2&gt;&amp;RIWO1-BAUTL(Z)&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt;&lt;/&gt; ,,  &lt;H0&gt;&amp;RIWO1-BAUTX&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Order          ,,&lt;/&gt;&lt;H2&gt;&amp;VIQMEL-AUFNR&amp;&lt;/&gt;          &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;PM planner grp ,,&lt;/&gt;&lt;H2&gt;&amp;VIQMEL-INGRP&amp;&lt;/&gt; &lt;/&gt;  ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>  &lt;H0&gt;&amp;T024I-INNAM&amp;&lt;/&gt;&lt;/&gt; ,,  &lt;I0&gt;Phone   &lt;/&gt;   &lt;/&gt;    ,,     &lt;H2&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&amp;T024I-INTEL&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; NOTIF HEADER SHORT --------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>NOTIF_HEADER_SHORT</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Notification   &lt;/&gt;   &lt;/&gt;   ,,   &lt;H2&gt;&amp;VIQMEL-QMNUM&amp;&lt;/&gt;&lt;/&gt;,,&lt;I0&gt;Start</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>date  &lt;/&gt;  &lt;/&gt;   &lt;H2&gt;&amp;VIQMEL-STRMN&amp;&lt;/&gt;&lt;/&gt; ,,  &lt;I0&gt;End date   &lt;/&gt;   &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE> &lt;H2&gt;&amp;VIQMEL-LTRMN&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Notification type   &lt;/&gt;   &lt;/&gt;    ,,     &lt;H2&gt;&amp;VIQMEL-QMART&amp;&lt;/&gt;&lt;/&gt;,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Start time   &lt;/&gt;   &lt;/&gt;    &lt;H2&gt;&amp;VIQMEL-STRUR&amp;&lt;/&gt;&lt;/&gt;   ,,   &lt;I0&gt;End time   &lt;/&gt;   &lt;/&gt;    &lt;H2&gt;&amp;VIQMEL-LTRUR&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF NOT &amp;VIQMEL-QMKAT&amp; = &apos; &apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Subject matter &lt;/&gt; ,,&lt;H2&gt; &amp;VIQMEL-QMGRP&amp;&lt;/&gt; &lt;H0&gt;&amp;VIQMEL-QMCOD&amp;&lt;/&gt; ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;H0&gt;&amp;FACT_TXTCDGR&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Description    ,,&lt;/&gt;&lt;H2&gt; &amp;VIQMEL-QMTXT&amp;&lt;/&gt;     &lt;/&gt;      ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>      &lt;H0&gt;&amp;TQ80_T-QMARTX&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Notification Created By  ,,&lt;/&gt;  &lt;/&gt;   &lt;H2&gt; &amp;VIQMEL-ERNAM&amp;&lt;/&gt; &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Start date     ,,&lt;/&gt;&lt;H2&gt;&amp;VIQMEL-STRMN&amp;&lt;/&gt; ,,,,&lt;I0&gt;End date      &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>,,&lt;H2&gt;&amp;VIQMEL-LTRMN&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Start time     ,,&lt;/&gt;&lt;H2&gt;&amp;VIQMEL-STRUR&amp;&lt;/&gt; ,,,,&lt;I0&gt;End time     &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>,, &lt;H2&gt;&amp;VIQMEL-LTRUR&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;VIQMEL-SCREENTY&amp; = &apos;O110&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Equipment      ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-EQUNR(Z)&amp;&lt;/&gt; ,,&lt;H0&gt;&amp;RIWO1-EQTXT&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Assembly       &lt;/&gt; ,,&lt;H2&gt;&amp;RIWO1-BAUTL(Z)&amp;&lt;/&gt; ,,&lt;H0&gt;&amp;RIWO1-BAUTX&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSEIF &amp;VIQMEL-SCREENTY&amp; = &apos;O130&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Serial number   ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-SERIALNR&amp;&lt;/&gt; ,,&lt;H0&gt;&amp;RIWO1-EQTXT&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Material        ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-MATNR(Z)&amp;&lt;/&gt; ,,&lt;H0&gt;&amp;RIWO1-MATKTX&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Device data     &lt;/&gt; ,,&lt;H2&gt;&amp;RIWO1-DEVICEID&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSEIF &amp;VIQMEL-SCREENTY&amp; = &apos;O140&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSEIF &amp;VIQMEL-SCREENTY&amp; = &apos;O150&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Equipment      ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-EQUNR(Z)&amp;&lt;/&gt; ,,&lt;H0&gt;&amp;RIWO1-EQTXT&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSEIF &amp;VIQMEL-SCREENTY&amp; = &apos;O160&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Funct. location,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-TPLNR&amp;&lt;/&gt; ,,&lt;H0&gt;&amp;RIWO1-PLTXT&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSEIF &amp;VIQMEL-SCREENTY&amp; = &apos;O170&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Equipment      ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-EQUNR(Z)&amp;&lt;/&gt; ,,&lt;H0&gt;&amp;RIWO1-EQTXT&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Serial number  ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-SERIALNR&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Material       ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-MATNR(Z)&amp;&lt;/&gt; ,,&lt;H0&gt;&amp;RIWO1-MATKTX&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Device data    &lt;/&gt; ,,&lt;H2&gt;&amp;RIWO1-DEVICEID&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ELSE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Funct. location,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-TPLNR&amp;&lt;/&gt; ,,&lt;H0&gt;&amp;RIWO1-PLTXT&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Equipment      ,,&lt;/&gt;&lt;H2&gt;&amp;RIWO1-EQUNR(Z)&amp;&lt;/&gt; ,,&lt;H0&gt;&amp;RIWO1-EQTXT&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Assembly       &lt;/&gt; ,,&lt;H2&gt;&amp;RIWO1-BAUTL(Z)&amp;&lt;/&gt; ,,&lt;H0&gt;&amp;RIWO1-BAUTX&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Order          ,,&lt;/&gt;&lt;H2&gt;&amp;VIQMEL-AUFNR&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;PM planner grp ,,&lt;/&gt;&lt;H2&gt;&amp;VIQMEL-INGRP&amp;&lt;/&gt; ,,&lt;H0&gt;&amp;T024I-INNAM&amp;&lt;/&gt; ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Phone   &lt;/&gt; ,,&lt;H2&gt;&amp;T024I-INTEL&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>STATUS</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&amp;IJEST_WA1-TXT30(30)&amp;,,&amp;IJEST_WA1-USNAM&amp;,,&amp;IJEST_WA1-UDATE&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>REVIEW</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>CE</TDFORMAT>
+     <TDLINE>&amp;uline(74)&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>Process department :</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>Safety department :</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>Consern HOD:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>General Manager</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>Remarks</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>BORDER</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>BOX XPOS &apos;0.1&apos; CM WIDTH &apos;19.1&apos; CM HEIGHT 24 CM FRAME 10 TW INTENSITY 2</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; NOTIFICATION POSITION DETAIL ----------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>NOTIF_DETAIL</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T4</TDFORMAT>
+     <TDLINE>&lt;B2&gt;Detail Position  &amp;WQMFE-FENUM&amp;&lt;/&gt;  &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Text           &lt;/&gt;           &lt;/&gt;            ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>            &lt;H2&gt;&amp;WQMFE-FETXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Object part     &lt;/&gt;     &lt;/&gt;      ,,       &lt;H2&gt;&amp;WQMFE-OTEIL&amp;&lt;/&gt;&lt;/&gt; ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE> &lt;H0&gt;&amp;WQMFE-TXTCDOT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Damage   &lt;/&gt;   &lt;/&gt;    ,,     &lt;H2&gt;&amp;WQMFE-FECOD&amp;&lt;/&gt;&lt;/&gt; ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE> &lt;H0&gt;&amp;WQMFE-TXTCD&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Assembly      &lt;/&gt;      &lt;/&gt;       ,,        &lt;H2&gt;&amp;WQMFE-BAUTL(Z)&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt; ,,,,  &lt;H0&gt;&amp;MAKT-MAKTX&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Error class   &lt;/&gt;   &lt;/&gt;    ,,     &lt;H2&gt;&amp;WQMFE-FRKLS&amp;&lt;/&gt;&lt;/&gt; ,,,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE> &lt;H0&gt;&amp;WQMFE-KLBEZ&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; NOTIFICATION CAUSE --------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>NOTIF_CAUSE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T4</TDFORMAT>
+     <TDLINE>&lt;B2&gt;Cause of damage&lt;/&gt;&lt;/&gt; ,,  &lt;H2&gt;&amp;WQMUR-URCOD&amp;&lt;/&gt;&lt;/&gt; ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE> &lt;H0&gt;&amp;WQMUR-TXTCD&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Cause (text)   &lt;/&gt;   &lt;/&gt;    ,,     &lt;H2&gt;&amp;WQMUR-URTXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; TASK ----------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>TASK</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T2</TDFORMAT>
+     <TDLINE>&lt;B2&gt;Task      &lt;/&gt;      &lt;/&gt;       ,,        &lt;H2&gt;&amp;WQMSM-MNGRP&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>&lt;H2&gt;&amp;WQMSM-MNCOD&amp;&lt;/&gt;&lt;/&gt; ,,  &lt;H2&gt;&amp;WQMSM-TXTCD&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Partner        &lt;/&gt;        &lt;/&gt;         ,,          &lt;H2&gt;&amp;DIADR-NAME2&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;System Status  &lt;/&gt;  &lt;/&gt;   ,,    &lt;H2&gt;&amp;BSVZ-STEXT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; CODE HEADER ---------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>CODE_HEADER</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;B2&gt;     Code grp,,Code,,Activity,,,,,,Factor&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; CODE GROUP ----------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>CODE_GROUP</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>&lt;H2&gt; &amp;QKAT-CODEGRUPPE&amp;&lt;/&gt; ,,,,&lt;H2&gt;&amp;QKAT-KURZTEXTGR&amp;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; PART BOX ------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>PART_BOX</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>&lt;H2&gt;&amp;WIPRT-BOX&amp; ,,,,,,,,,,&amp;WIPRT-BOX&amp;&lt;/&gt; &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; CODE ----------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>CODE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T3</TDFORMAT>
+     <TDLINE>&lt;H2&gt;|&lt;/&gt;&lt;U2&gt; X &lt;/&gt;&lt;H2&gt;|&lt;/&gt;&lt;/&gt;  ,,    &lt;H2&gt;&amp;QKAT-CODE&amp;&lt;/&gt;&lt;/&gt; ,,  &lt;H0&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>&amp;QKAT-KURZTEXTCD&amp;&lt;/&gt; &lt;/&gt;  ,,,,,,   &lt;H2&gt;|&lt;/&gt;&lt;U2&gt;&amp;WQMMA-MNGFA(C)&amp;&lt;/&gt;&lt;H2&gt;|</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; CODE BOX EMPTY ------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>CODE_BOX</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>*</TDFORMAT>
+     <TDLINE>&lt;H2&gt;&amp;WIPRT-BOX&amp;&lt;/&gt;&lt;/&gt;   ,,      &lt;H2&gt;&amp;QKAT-CODE&amp;&lt;/&gt;&lt;/&gt; ,,  &lt;H0&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>=</TDFORMAT>
+     <TDLINE>&amp;QKAT-KURZTEXTCD&amp;&lt;/&gt;&lt;/&gt;                                    ,,,,,,                                     &lt;H2&gt;&amp;WIPRT-BOX&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; DOWNTIME ------------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>DOWNTIME</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T4</TDFORMAT>
+     <TDLINE>&lt;B2&gt;Breakdown and availability specifications      &lt;/&gt;      &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Malfunction start&lt;/&gt;&lt;/&gt; ,,  &lt;H2&gt;&amp;VIQMEL-AUSVN&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE> &lt;H2&gt;&amp;VIQMEL-AUZTV&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Malfunction end  &lt;/&gt;  &lt;/&gt;   ,,    &lt;H2&gt;&amp;VIQMEL-AUSBS&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE> &lt;H2&gt;&amp;VIQMEL-AUZTB&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>IF &amp;VIQMEL-MSAUS&amp; = &apos;X&apos;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;B2&gt;Breakdown!       &lt;/&gt;       &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/:</TDFORMAT>
+     <TDLINE>ENDIF</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Breakdown duration   &lt;/&gt;   &lt;/&gt;    ,,      &lt;H2&gt; &amp;WIPRT-TIME&amp;&lt;/&gt; &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>  &lt;H2&gt;&amp;WIPRT-TIMEUNIT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Relevant functional location&lt;/&gt;&lt;/&gt; ,,  &lt;H2&gt;&amp;VIQMEL-BTPLN&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Relevant equipment&lt;/&gt;&lt;/&gt; ,,  &lt;H2&gt;&amp;VIQMEL-BEQUI&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; STATUS BEFORE -------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>STATUS_BEFORE</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T4</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Availability before malfunction           &lt;/&gt;           &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>           ,,,,,,             &lt;H2&gt;&amp;VIQMEL-VERFV(Z)&amp;&lt;/&gt;&lt;/&gt; % ,,  &lt;H0&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>&amp;T357Z_T-ANLAZT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; STATUS AFTER  -------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>STATUS_AFTER</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T4</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Availability after malfunction            &lt;/&gt;            &lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>            ,,,,,,              &lt;H2&gt;&amp;VIQMEL-VERFN(Z)&amp;&lt;/&gt;&lt;/&gt; % ,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE> &lt;H0&gt;&amp;T357Z_T-ANLAZT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+     <TDLINE>-&gt; STATUS REPAIR -------------------------------------------------------</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/E</TDFORMAT>
+     <TDLINE>STATUS_REPAIR</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>T4</TDFORMAT>
+     <TDLINE>&lt;I0&gt;Availability after conclusion of task     &lt;/&gt;     &lt;/&gt;      ,,,,,,</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>      &lt;H2&gt;&amp;VIQMEL-VERFM(Z)&amp;&lt;/&gt;&lt;/&gt; % ,,  &lt;H0&gt;&amp;T357Z_T-ANLAZT&amp;&lt;/&gt;&lt;/&gt;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>/*</TDFORMAT>
+    </TLINE>
+   </TDLINES>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZPM</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Plant Maintenance message class</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZPM</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>Enter valid plant number</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZPM</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Enter valid Maintenance order number</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZPM</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>No Data Found</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>
