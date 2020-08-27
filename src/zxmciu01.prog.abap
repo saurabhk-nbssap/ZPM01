@@ -31,6 +31,14 @@ IF ( sy-tcode = 'IW21' or sy-tcode = 'IW22' or sy-tcode = 'IW23')
  CREATE DATA lv_exists2 TYPE FMFMOAIHD3000022.
  ASSIGN lv_exists2->* TO FIELD-SYMBOL(<fs>).
 
+*FMFMOAIHP3000016 in PRD (The same table will be varying in
+*DEV- FMFMOAIHD3000022 &
+*QAS - FMFMOAIHQ3000016).
+*Refer tables for  Derivation rule: Cost Centre to Fund Centre
+*DEV : FMFMOAIHD3000017
+*QA: FMFMOAIHQ3000014
+*PRD: FMFMOAIHP3000015
+
 
  IF sy-sysid EQ 'IHD'.
     lv_table1 = 'FMFMOAIHD3000017'.
@@ -49,8 +57,16 @@ IF ( sy-tcode = 'IW21' or sy-tcode = 'IW22' or sy-tcode = 'IW23')
   IF ZFUND_CENTER IS NOT INITIAL.
 **    insert row in derivative rule .
 
+*SOUR1_FROM - AUFNR
+*SOUR1_TO  - AUFNR
+*VALID_FROM - SY-datum
+*
+*TARGET1  - ZFUND_CENTER
+*
+*ADDED_BY - Sy-uname
+*ADDED_ON - Sy-datum
 
-
+*insert INTO
   ENDIF.
 
 ENDIF.
