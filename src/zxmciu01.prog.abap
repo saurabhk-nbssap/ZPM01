@@ -23,10 +23,13 @@ IF ( sy-tcode = 'IW21' or sy-tcode = 'IW22' or sy-tcode = 'IW23')
     AND N_VIQMEL-KOSTL is NOT INITIAL.
 
  DATA: ZFUND_CENTER TYPE FISTL.
- DATA: lv_table1 TYPE string.
- DATA lv_exists TYPE REF TO data.
+ DATA: lv_table1 TYPE string,
+       lv_table2 TYPE string.
+ DATA: lv_exists TYPE REF TO data,
+       lv_exists2 TYPE REF TO data.
  CREATE DATA lv_exists TYPE fmfmoaihd3000017.
-* ASSIGN lv_exists->* TO FIELD-SYMBOL(<fs>).
+ CREATE DATA lv_exists2 TYPE FMFMOAIHD3000022.
+ ASSIGN lv_exists2->* TO FIELD-SYMBOL(<fs>).
 
 
  IF sy-sysid EQ 'IHD'.
@@ -45,6 +48,7 @@ IF ( sy-tcode = 'IW21' or sy-tcode = 'IW22' or sy-tcode = 'IW23')
     WHERE ( SOUR1_FROM <= N_VIQMEL-KOSTL AND SOUR1_TO >=  N_VIQMEL-KOSTL ).
   IF ZFUND_CENTER IS NOT INITIAL.
 **    insert row in derivative rule .
+
 
 
   ENDIF.
