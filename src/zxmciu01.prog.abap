@@ -13,3 +13,23 @@ if sy-tcode = 'IW21'.
     with so_qmnum eq n_viqmel-qmnum and return.
   endif.
 endif.
+
+*<< Below code is related to fund managment enhancement - inserting record in deviration rule for Order to Funds Center.
+*** FS given by KPMG consultant Gasia ; INDOFIL Developer 10106 - TR: IHDK907939 , Date : 27.08.2020
+
+IF ( sy-tcode = 'IW21' or sy-tcode = 'IW22' or sy-tcode = 'IW23')
+    AND sy-ucomm = 'BU'
+    AND N_VIQMEL-aufnr is NOT INITIAL
+    AND N_VIQMEL-KOSTL is NOT INITIAL.
+
+ DATA: ZFUND_CENTER TYPE FISTL.
+
+ SELECT  SINGLE target1 FROM FMFMOAIHD3000017 INTO ZFUND_CENTER
+    WHERE ( SOUR1_FROM <= N_VIQMEL-KOSTL AND SOUR1_TO >=  N_VIQMEL-KOSTL ).
+  IF ZFUND_CENTER IS NOT INITIAL.
+**    insert row in derivative rule .
+
+
+  ENDIF.
+
+ENDIF.
