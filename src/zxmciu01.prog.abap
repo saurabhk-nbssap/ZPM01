@@ -95,11 +95,11 @@ IF ( sy-tcode = 'IW21' or sy-tcode = 'IW22' or sy-tcode = 'IW23')
   ENDIF.
 
   modify (lv_table2) FROM <fs>.
-  IF sy-subrc eq 0.
-    COMMIT WORK.
-  ELSE.
-    ROLLBACK WORK.
-  ENDIF.
+*  IF sy-subrc eq 0.
+*    COMMIT WORK.
+*  ELSE.
+*    ROLLBACK WORK.
+*  ENDIF.
 *SOUR1_FROM - AUFNR
 *SOUR1_TO  - AUFNR
 *VALID_FROM - SY-datum
