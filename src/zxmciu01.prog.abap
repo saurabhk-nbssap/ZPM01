@@ -73,7 +73,8 @@ IF ( sy-tcode = 'IW21' or sy-tcode = 'IW22' or sy-tcode = 'IW23')
   UNASSIGN <fs_value>.
   ASSIGN COMPONENT 'VALID_FROM' OF STRUCTURE <fs> TO <fs_value>.
   IF sy-subrc eq 0.
-    <fs_value> = sy-datum.
+*    <fs_value> = sy-datum." if we entered System cdate incosistancy error in comming hence we are inserting date as 01.01.0001.
+     <fs_value> = '00010101'.
   ENDIF.
 
   UNASSIGN <fs_value>.
