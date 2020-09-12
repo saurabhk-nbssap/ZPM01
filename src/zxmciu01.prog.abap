@@ -18,10 +18,14 @@ endif.
 *<< Below code is related to fund managment enhancement - inserting record in deviration rule for Order to Funds Center.
 *** FS given by KPMG consultant Gasia ; INDOFIL Developer 10106 - TR: IHDK907939 , Date : 27.08.2020
 
-IF ( sy-tcode = 'IW21' or sy-tcode = 'IW22' or sy-tcode = 'IW23')
+IF ( ( sy-tcode = 'IW21' or sy-tcode = 'IW22' or sy-tcode = 'IW23')
     AND sy-ucomm = 'BU'
     AND N_VIQMEL-aufnr is NOT INITIAL
-    AND N_VIQMEL-KOSTL is NOT INITIAL.
+    AND N_VIQMEL-KOSTL is NOT INITIAL )
+    or ( ( sy-tcode = 'IW33' or sy-tcode = 'IW32' or sy-tcode = 'IW31')
+    AND sy-ucomm = 'BU'
+    AND I_MCIPMB-aufnr is NOT INITIAL
+    AND I_MCIPMB-KOSTL is NOT INITIAL ) .
 
  DATA: ZFUND_CENTER TYPE FISTL.
  DATA: lv_table1 TYPE string,
@@ -29,7 +33,7 @@ IF ( sy-tcode = 'IW21' or sy-tcode = 'IW22' or sy-tcode = 'IW23')
  DATA: lv_exists TYPE REF TO data,
        lv_exists2 TYPE REF TO data.
 
-
+*I_MCIPMB-KOSTL
 *FMFMOAIHP3000016 in PRD (The same table will be varying in
 *DEV- FMFMOAIHD3000022 &
 *QAS - FMFMOAIHQ3000016).
@@ -51,6 +55,7 @@ IF ( sy-tcode = 'IW21' or sy-tcode = 'IW22' or sy-tcode = 'IW23')
 
  CREATE DATA lv_exists2 TYPE (lv_table2).
  ASSIGN lv_exists2->* TO FIELD-SYMBOL(<fs>).
+
 
  SELECT  SINGLE target1 FROM (lv_table1)
     INTO ZFUND_CENTER
