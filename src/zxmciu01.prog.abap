@@ -56,23 +56,40 @@ IF ( ( sy-tcode = 'IW21' or sy-tcode = 'IW22' or sy-tcode = 'IW23')
  CREATE DATA lv_exists2 TYPE (lv_table2).
  ASSIGN lv_exists2->* TO FIELD-SYMBOL(<fs>).
 
-
- SELECT  SINGLE target1 FROM (lv_table1)
+ IF ( sy-tcode = 'IW21' or sy-tcode = 'IW22' or sy-tcode = 'IW23') .
+   SELECT  SINGLE target1 FROM (lv_table1)
     INTO ZFUND_CENTER
     WHERE ( SOUR1_FROM <= N_VIQMEL-KOSTL AND SOUR1_TO >=  N_VIQMEL-KOSTL ).
+ ELSEIF ( sy-tcode = 'IW31' or sy-tcode = 'IW32' or sy-tcode = 'IW33') .
+   SELECT  SINGLE target1 FROM (lv_table1)
+    INTO ZFUND_CENTER
+    WHERE ( SOUR1_FROM <= I_MCIPMB-KOSTL AND SOUR1_TO >=  I_MCIPMB-KOSTL ).
+ ENDIF.
+
 
   IF ZFUND_CENTER IS NOT INITIAL.
 **    insert row in derivative rule .
 
   ASSIGN COMPONENT 'SOUR1_FROM' OF STRUCTURE <fs> TO FIELD-SYMBOL(<fs_value>).
   IF sy-subrc eq 0.
-    <fs_value> = N_VIQMEL-aufnr.
+    IF N_VIQMEL-aufnr IS NOT INITIAL .
+     <fs_value> = N_VIQMEL-aufnr.
+    ENDIF.
+    IF I_MCIPMB-aufnr IS NOT INITIAL .
+     <fs_value> = I_MCIPMB-aufnr.
+    ENDIF.
   ENDIF.
 
   UNASSIGN <fs_value>.
   ASSIGN COMPONENT 'SOUR1_TO' OF STRUCTURE <fs> TO <fs_value>.
   IF sy-subrc eq 0.
+    if N_VIQMEL-aufnr IS NOT INITIAL .
     <fs_value> = N_VIQMEL-aufnr.
+    endif.
+    if I_MCIPMB-aufnr is NOT INITIAL.
+    <fs_value> = I_MCIPMB-aufnr.
+    endif.
+
   ENDIF.
 
   UNASSIGN <fs_value>.
