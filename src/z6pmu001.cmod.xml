@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<abapGit version="v1.0.0" serializer="ZCL_ABAPGIT_OBJECT_BY_SOBJ" serializer_version="1.0">
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CMOD" serializer_version="v1.0.0">
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <MODACT>
@@ -11,146 +11,6 @@
      <MEMBER>IMRC0001</MEMBER>
     </MODACT>
    </MODACT>
-   <MODACT_field_catalog>
-    <item>
-     <POS>1</POS>
-     <NAME>NAME</NAME>
-     <TYPE_KIND>C</TYPE_KIND>
-     <LENGTH>8</LENGTH>
-     <IS_KEY>X</IS_KEY>
-    </item>
-    <item>
-     <POS>2</POS>
-     <NAME>TYP</NAME>
-     <TYPE_KIND>C</TYPE_KIND>
-     <LENGTH>1</LENGTH>
-     <IS_KEY>X</IS_KEY>
-    </item>
-    <item>
-     <POS>3</POS>
-     <NAME>MEMBER</NAME>
-     <TYPE_KIND>C</TYPE_KIND>
-     <LENGTH>100</LENGTH>
-     <IS_KEY>X</IS_KEY>
-    </item>
-    <item>
-     <POS>4</POS>
-     <NAME>DEVCLASS</NAME>
-     <TYPE_KIND>C</TYPE_KIND>
-     <LENGTH>30</LENGTH>
-    </item>
-    <item>
-     <POS>5</POS>
-     <NAME>KORRNUM</NAME>
-     <TYPE_KIND>C</TYPE_KIND>
-     <LENGTH>20</LENGTH>
-    </item>
-    <item>
-     <POS>6</POS>
-     <NAME>TRANNUM</NAME>
-     <TYPE_KIND>C</TYPE_KIND>
-     <LENGTH>20</LENGTH>
-    </item>
-    <item>
-     <POS>7</POS>
-     <NAME>MIGRATED</NAME>
-     <TYPE_KIND>C</TYPE_KIND>
-     <LENGTH>1</LENGTH>
-    </item>
-    <item>
-     <POS>8</POS>
-     <NAME>BADI_IMP</NAME>
-     <TYPE_KIND>C</TYPE_KIND>
-     <LENGTH>20</LENGTH>
-    </item>
-   </MODACT_field_catalog>
-   <MODATTR>
-    <MODATTR>
-     <NAME>Z6PMU001</NAME>
-     <CNAM>IBMABAP01</CNAM>
-     <CDAT>2010-06-09</CDAT>
-     <UNAM>IBMABAP01</UNAM>
-     <UDAT>2010-06-09</UDAT>
-     <STATUS>A</STATUS>
-     <ANAM>IBMABAP01</ANAM>
-     <ADAT>2010-06-21</ADAT>
-    </MODATTR>
-   </MODATTR>
-   <MODATTR_field_catalog>
-    <item>
-     <POS>1</POS>
-     <NAME>NAME</NAME>
-     <TYPE_KIND>C</TYPE_KIND>
-     <LENGTH>8</LENGTH>
-     <IS_KEY>X</IS_KEY>
-    </item>
-    <item>
-     <POS>2</POS>
-     <NAME>STDFLAG</NAME>
-     <TYPE_KIND>C</TYPE_KIND>
-     <LENGTH>1</LENGTH>
-    </item>
-    <item>
-     <POS>3</POS>
-     <NAME>CNAM</NAME>
-     <TYPE_KIND>C</TYPE_KIND>
-     <LENGTH>12</LENGTH>
-    </item>
-    <item>
-     <POS>4</POS>
-     <NAME>CDAT</NAME>
-     <TYPE_KIND>D</TYPE_KIND>
-     <LENGTH>8</LENGTH>
-    </item>
-    <item>
-     <POS>5</POS>
-     <NAME>UNAM</NAME>
-     <TYPE_KIND>C</TYPE_KIND>
-     <LENGTH>12</LENGTH>
-    </item>
-    <item>
-     <POS>6</POS>
-     <NAME>UDAT</NAME>
-     <TYPE_KIND>D</TYPE_KIND>
-     <LENGTH>8</LENGTH>
-    </item>
-    <item>
-     <POS>7</POS>
-     <NAME>STATUS</NAME>
-     <TYPE_KIND>C</TYPE_KIND>
-     <LENGTH>1</LENGTH>
-    </item>
-    <item>
-     <POS>8</POS>
-     <NAME>ANAM</NAME>
-     <TYPE_KIND>C</TYPE_KIND>
-     <LENGTH>12</LENGTH>
-    </item>
-    <item>
-     <POS>9</POS>
-     <NAME>ADAT</NAME>
-     <TYPE_KIND>D</TYPE_KIND>
-     <LENGTH>8</LENGTH>
-    </item>
-    <item>
-     <POS>10</POS>
-     <NAME>FNAM</NAME>
-     <TYPE_KIND>C</TYPE_KIND>
-     <LENGTH>12</LENGTH>
-    </item>
-    <item>
-     <POS>11</POS>
-     <NAME>FDAT</NAME>
-     <TYPE_KIND>D</TYPE_KIND>
-     <LENGTH>8</LENGTH>
-    </item>
-    <item>
-     <POS>12</POS>
-     <NAME>MIGRATED</NAME>
-     <TYPE_KIND>C</TYPE_KIND>
-     <LENGTH>1</LENGTH>
-    </item>
-   </MODATTR_field_catalog>
    <MODTEXT>
     <MODTEXT>
      <SPRSL>E</SPRSL>
@@ -158,28 +18,12 @@
      <MODTEXT>Triggering notification for exceeding set limit Mesuring Doc</MODTEXT>
     </MODTEXT>
    </MODTEXT>
-   <MODTEXT_field_catalog>
-    <item>
-     <POS>1</POS>
-     <NAME>SPRSL</NAME>
-     <TYPE_KIND>C</TYPE_KIND>
-     <LENGTH>1</LENGTH>
-     <IS_KEY>X</IS_KEY>
-    </item>
-    <item>
-     <POS>2</POS>
-     <NAME>NAME</NAME>
-     <TYPE_KIND>C</TYPE_KIND>
-     <LENGTH>8</LENGTH>
-     <IS_KEY>X</IS_KEY>
-    </item>
-    <item>
-     <POS>3</POS>
-     <NAME>MODTEXT</NAME>
-     <TYPE_KIND>C</TYPE_KIND>
-     <LENGTH>60</LENGTH>
-    </item>
-   </MODTEXT_field_catalog>
+   <MODATTR>
+    <MODATTR>
+     <NAME>Z6PMU001</NAME>
+     <STATUS>A</STATUS>
+    </MODATTR>
+   </MODATTR>
   </asx:values>
  </asx:abap>
 </abapGit>
